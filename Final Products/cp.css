@@ -246,4 +246,18 @@ button.selected:hover {
 #loader.show {
     visibility: visible;
     opacity: 1;
+
+}
+
+hr {
+  border-width: 1px;
+  border-color: red;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #fff;
 }

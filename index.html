@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Cars Portal</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        color: white;
+        /* background-color: black; */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        transition: background 1s ease, box-shadow 1s ease;
+        overflow: hidden;
+        background-image: url("https://github.com/Snuhith-avp/MODERN_CARS_WEBSITE/blob/main/Car_Product_images/car4.jpg?raw=true");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      header.header {
+        position: relative;
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: 20px 0;
+        transition: box-shadow 0.5s ease;
+      }
+
+      .header .left-icon,
+      .header .right-icon {
+        position: absolute;
+        font-size: 40px;
+        top: 20px;
+        color: white;
+        transition: all 0.8s ease;
+        border-radius: 50%;
+      }
+
+      .header .left-icon {
+        left: 80px;
+      }
+      .header .right-icon {
+        right: 80px;
+      }
+
+      .lights {
+        color: rgb(255, 0, 0) !important;
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+        border-radius: 50%;
+      }
+
+      .shadow {
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+      }
+
+      .continue {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        max-width: 900px;
+        margin: 185px auto;
+        transition: all 0.8s ease;
+        /* box-shadow: 0 0 25px rgba(255, 255, 255, 0.8); */
+        backdrop-filter: blur(1px);
+        border-radius: 15px;
+      }
+
+      .hero-title1,
+      .hero-title2 {
+        font-size: 2em;
+        font-weight: 600;
+        line-height: 1.3;
+        width: 510px;
+        text-align: left;
+      }
+
+      .hero-title1 {
+        margin-bottom: 5px;
+      }
+      .hero-title2 {
+        margin-bottom: 15px;
+        color: red;
+      }
+
+      .hero-title .highlight,
+      .hero-title2 .highlight {
+        color: red;
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+        color: #ddd;
+        max-width: 510px;
+        margin-bottom: 25px;
+        line-height: 1.6;
+        text-align: justify;
+      }
+
+      .button {
+        padding: 12px 28px;
+        background: linear-gradient(45deg, #ff0000, #cc0000);
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .button:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6);
+        background: linear-gradient(45deg, #ff3333, #cc0000);
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 1.6rem;
+        }
+        .hero-sub {
+          font-size: 0.95rem;
+        }
+        .button {
+          font-size: 15px;
+          padding: 10px 25px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 1.3rem;
+        }
+        .hero-sub {
+          font-size: 0.9rem;
+        }
+        .button {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+      }
+
+      .hide {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.8);
+      }
+
+      .body-glow {
+        background-color: black;
+        box-shadow: inset 0 0 200px rgba(255, 0, 0, 0.5);
+      }
+
+      .form-wrapper {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .form-wrapper.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .container {
+        width: 380px;
+        padding: 30px;
+        background-color: rgba(30, 30, 30, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        text-align: center;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        position: absolute;
+      }
+
+      .container h2 {
+        text-align: left;
+        margin-bottom: 10px;
+      }
+
+      p {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+      a {
+        color: #ff0000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      input {
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+      }
+      button[type="submit"] {
+        padding: 10px;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      button[type="submit"]:hover {
+        background-color: #ff000070;
+      }
+      .hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.95);
+      }
+
+      @keyframes igniteGlow {
+        0% {
+          box-shadow: 0 0 5px #ff0000;
+        }
+        25% {
+          box-shadow: 0 0 20px #ff0000;
+        }
+        50% {
+          box-shadow: 0 0 40px #ff0000;
+        }
+        75% {
+          box-shadow: 0 0 20px #ff0000;
+        }
+        100% {
+          box-shadow: 0 0 5px #ff0000;
+        }
+      }
+
+      .ignite {
+        animation: igniteGlow 1s ease-in-out;
+      }
+
+      .success-green {
+        color: #00ff00 !important;
+        box-shadow: 0 0 30px #00ff00 !important;
+      }
+
+      .body-success-glow {
+        box-shadow: inset 0 0 200px rgba(0, 255, 0, 0.6);
+        transition: box-shadow 0.5s ease;
+      }
+
+      #mainTitle {
+        color: white !important;
+        text-shadow: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <span class="material-icons-outlined left-icon">circle</span>
+      <h1 id="mainTitle">
+        Welcome to <span style="color: red">M</span>odern
+        <span style="color: red">C</span>ars
+      </h1>
+      <span class="material-icons-outlined right-icon">circle</span>
+    </header>
+
+    <div class="continue">
+      <h2 id="heroTitle" class="hero-title1">Experience the drive</h2>
+      <h2 class="hero-title2">where performance meets design</h2>
+      <p class="hero-sub">
+        Explore curated models, sign in to unlock exclusive previews and
+        configure your future vehicle. Engineered for speed, styled for
+        distinction.
+      </p>
+      <button type="button" class="button">Continue</button>
+    </div>
+
+    <div class="form-wrapper" id="formWrapper">
+      <div id="container1" class="container">
+        <h2>Create Account</h2>
+        <p>Already have an account? <a id="tosignin">Sign-in</a></p>
+        <form>
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Sign-up</button>
+        </form>
+      </div>
+
+      <div id="container2" class="container hidden">
+        <h2>Sign-in</h2>
+        <p>or <a id="createacc">create an account</a></p>
+        <form id="signinForm">
+          <input type="email" id="signinEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="signinPassword"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" id="signinBtn">Sign-in</button>
+        </form>
+      </div>
+    </div>
+
+    <audio
+      id="clickSound"
+      src="../cars_proj/car-engine-ignition-fail-352768.mp3"
+    ></audio>
+    <audio
+      id="successSound"
+      src="../cars_proj/car-engine-roaring-376881 (1).mp3"
+    ></audio>
+
+    <script>
+      const body = document.querySelector("body");
+      const header = document.querySelector(".header");
+      const lefticon = document.querySelector(".left-icon");
+      const righticon = document.querySelector(".right-icon");
+      const button = document.querySelector(".button");
+      const continueSection = document.querySelector(".continue");
+      const formWrapper = document.getElementById("formWrapper");
+      const container1 = document.getElementById("container1");
+      const container2 = document.getElementById("container2");
+      const createAccLink = document.getElementById("createacc");
+      const toSignin = document.getElementById("tosignin");
+      const signinForm = document.getElementById("signinForm");
+      const signinEmail = document.getElementById("signinEmail");
+      const signinPassword = document.getElementById("signinPassword");
+      const signinBtn = document.getElementById("signinBtn");
+      const mainTitle = document.getElementById("mainTitle");
+
+      const clickSound = document.getElementById("clickSound");
+      const successSound = document.getElementById("successSound");
+
+      let animationPlayed = false;
+
+      function blinkLightsAndGlow() {
+        let blinkCount = 0;
+        const blinkInterval = setInterval(() => {
+          lefticon.classList.toggle("lights");
+          righticon.classList.toggle("lights");
+          body.classList.toggle("body-glow");
+          blinkCount++;
+          if (blinkCount >= 6) {
+            clearInterval(blinkInterval);
+            lefticon.classList.add("lights");
+            righticon.classList.add("lights");
+            body.classList.add("body-glow");
+          }
+        }, 300);
+      }
+
+      button.addEventListener("click", () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+
+        if (animationPlayed) return;
+        body.style.backgroundImage =
+          "url('https://github.com/Snuhith-avp/MODERN_CARS_WEBSITE/blob/main/Car_Product_images/car5.jpg?raw=true')";
+        animationPlayed = true;
+        header.classList.add("shadow");
+        continueSection.classList.add("hide");
+        blinkLightsAndGlow();
+        setTimeout(() => formWrapper.classList.add("active"), 1000);
+      });
+
+      createAccLink.addEventListener("click", () => {
+        container2.classList.add("hidden");
+        setTimeout(() => container1.classList.remove("hidden"), 200);
+      });
+
+      toSignin.addEventListener("click", () => {
+        container1.classList.add("hidden");
+        setTimeout(() => container2.classList.remove("hidden"), 200);
+      });
+
+      signinForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        successSound.currentTime = 0;
+        successSound.play();
+
+        if (signinEmail.value.trim() && signinPassword.value.trim()) {
+          body.classList.add("body-success-glow");
+          lefticon.classList.replace("lights", "success-green");
+          righticon.classList.replace("lights", "success-green");
+          header.classList.add("success-green");
+          signinBtn.classList.add("success-green");
+          mainTitle.style.color = "white";
+          setTimeout(
+            () => (window.location.href = "Project_Cars/Modern_Cars.html"),
+            1200
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

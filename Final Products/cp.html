@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Products</title>
+    <link rel="stylesheet" href="cp.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <div class="navbar">
+        <div class="logo">
+          <span style="color: red; font-size: 30px; letter-spacing: 2px">M</span
+          >odern
+          <span style="color: red; font-size: 30px; letter-spacing: 2px">C</span
+          >ars
+        </div>
+        <ul class="nav-links">
+          <li><a href="../Project_Cars/Modern_Cars.html#home">Home</a></li>
+          <li><a href="../Project_Cars/Modern_Cars.html#about">About Us</a></li>
+          <li>
+            <a href="../Project_Cars/Modern_Cars.html#models">Products</a>
+          </li>
+          <li>
+            <a href="../Project_Cars/Modern_Cars.html#gallery">Gallery</a>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <h2 class="maintitle">Our Products</h2>
+    <section id="products">
+      <div class="brand-filters">
+        <button onclick="filterBrand('all')">All</button>
+        <button onclick="filterBrand('ferrari')">Ferrari</button>
+        <button onclick="filterBrand('lamborghini')">Lamborghini</button>
+        <button onclick="filterBrand('bugatti')">Bugatti</button>
+        <button onclick="filterBrand('bmw')">BMW</button>
+        <button onclick="filterBrand('mercedes-benz')">Mercedes</button>
+        <button onclick="filterBrand('audi')">Audi</button>
+        <button onclick="filterBrand('porsche')">Porsche</button>
+        <button onclick="filterBrand('tesla')">Tesla</button>
+        <button onclick="filterBrand('rolls-royce')">Rolls-Royce</button>
+        <button onclick="filterBrand('aston martin')">Aston Martin</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <div id="loader">
+      <img
+        src="https://github.com/Snuhith-avp/MODERN_CARS_WEBSITE/blob/main/Car_Product_images/car-steering-wheel.png?raw=true"
+        alt="Loading..."
+      />
+    </div>
+
+    <script src="cp.js"></script>
+  </body>
+</html>

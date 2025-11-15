@@ -10,11 +10,11 @@ function hideLoader() {
 async function loadCars() {
   try {
     showLoader();
-    const response = await fetch("car_data_file.json");
+    const response = await fetch("https://raw.githubusercontent.com/Snuhith-avp/MODERN_CARS_WEBSITE/refs/heads/main/Final%20Products/car_data_file.json");
     allCars = await response.json();
     renderCars("all");
   } catch (error) {
-    console.error("Error loading car_data_file.json:", error);
+    console.error("Error loading https://raw.githubusercontent.com/Snuhith-avp/MODERN_CARS_WEBSITE/refs/heads/main/Final%20Products/car_data_file.json:", error);
   } finally {
     setTimeout(hideLoader, 700);
   }
@@ -126,3 +126,4 @@ window.addEventListener("DOMContentLoaded", () => {
     .classList.add("selected");
   loadCars();
 });
+

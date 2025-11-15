@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Animation</title>
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Montserrat, Inter, sans-serif;
+      }
+
+      .container {
+        position: relative;
+        width: 260px;
+        height: 360px;
+      }
+
+      .card {
+        position: absolute;
+        width: 260px;
+        height: 360px;
+        border-radius: 10px;
+        transition: 0.6s ease;
+      }
+
+      .main {
+        background: url("https://github.com/Spiderman-coding-88/Images_of_proj_cars/blob/main/cardmain.jpg?raw=true")
+          center/cover no-repeat;
+        color: #ffffff;
+        z-index: 4;
+        box-shadow: 0 0 10px #79514f;
+        cursor: pointer;
+        filter: brightness(150%);
+        transition: transform 1s ease-out;
+        transition-delay: 0s;
+      }
+
+      .title_card {
+        background: #ff0000;
+        color: #ffffff;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .closecardicon {
+        position: absolute;
+        font-size: 25px;
+        padding-left: 235px;
+        color: #000;
+      }
+
+      .qr_card {
+        background: url("https://github.com/Spiderman-coding-88/Images_of_proj_cars/blob/main/contact_bg.jpg?raw=true")
+          center/cover no-repeat;
+        /* filter: brightness(50%); */
+        z-index: 2;
+        transform: scale(0.7);
+        opacity: 0;
+        transition: 0.5s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .avps {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 260px;
+        height: 360px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 35px;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .glow_card {
+        background: #ffffff;
+        z-index: 1;
+      }
+
+      .active-main {
+        transform: scale(1.1);
+        opacity: 0;
+      }
+
+      .active-title_card {
+        transform: translateY(-100px);
+        z-index: 5;
+      }
+
+      .active-glow_card {
+        transform: translateY(30px);
+        z-index: 5;
+
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.9),
+          0 20px 40px rgba(255, 255, 255, 0.6),
+          0 30px 60px rgba(255, 255, 255, 0.4);
+      }
+
+      .active-qr_card {
+        transform: scale(1.1);
+        opacity: 1;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card main"></div>
+      <div class="card title_card">
+        <ion-icon class="closecardicon" name="close-circle-outline"></ion-icon>
+        <h2 style="padding-top: 10px; font-weight: 900">MODERN CARS</h2>
+      </div>
+      <div class="card qr_card">
+        <div class="avps">
+          <h3 style="font-weight: 400; color: #ffffff">Scan QR</h3>
+          <img
+            src="https://github.com/Snuhith-avp/MODERN_CARS_WEBSITE/blob/main/Modern_Cars(QR_Code).png?raw=true"
+            alt="Modern_Cars(QR_Code)"
+          />
+          <a
+            href="https://snuhith-avp.github.io/MODERN_CARS_WEBSITE/"
+            style="color: rgb(255, 0, 0); text-decoration: underline"
+            target="_blank"
+            >Or click here</a
+          >
+        </div>
+      </div>
+      <div class="card glow_card"></div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script>
+      const container = document.querySelector(".container");
+      const main = document.querySelector(".main");
+      const closecardicon = document.querySelector(".closecardicon");
+      const title_card = document.querySelector(".title_card");
+      const glow_card = document.querySelector(".glow_card");
+      const qr_card = document.querySelector(".qr_card");
+
+      let opened = false;
+
+      function openCards() {
+        opened = true;
+        main.classList.add("active-main");
+        title_card.classList.add("active-title_card");
+        glow_card.classList.add("active-glow_card");
+        qr_card.classList.add("active-qr_card");
+      }
+
+      function closeCards() {
+        opened = false;
+        main.classList.remove("active-main");
+        title_card.classList.remove("active-title_card");
+        glow_card.classList.remove("active-glow_card");
+        qr_card.classList.remove("active-qr_card");
+      }
+
+      main.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (!opened) openCards();
+      });
+
+      closecardicon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (opened) closeCards();
+      });
+    </script>
+  </body>
+</html>

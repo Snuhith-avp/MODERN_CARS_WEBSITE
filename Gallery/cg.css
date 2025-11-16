@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, Inter, sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #000;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(255, 0, 0, 0.8);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 30px;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 25px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    transition: width 0.3s;
+}
+
+.nav-links li a:hover {
+    color: red;
+}
+
+.nav-links li a:hover::after {
+    width: 90%;
+}
+
+/* .maintitle{
+    margin-top: 85px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+} */
+
+#gallery {
+    background-color: #000000;
+    column-count: 3;
+    column-gap: 15px;
+    padding: 20px 5%;
+    margin-top: 75px;
+}
+
+#gallery img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#gallery img:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 10px rgb(255, 0, 0);
+}
+
+hr {
+    border-width: 1px;
+    border-color: red;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+}

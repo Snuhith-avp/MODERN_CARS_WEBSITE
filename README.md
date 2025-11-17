@@ -1,7 +1,7 @@
 # MODERN_CARS_WEBSITE
 
 <p align="center">
-  <img src="Car_Product_images/banner.png" width="300">
+  <img src="Car_Product_images/home_page.png" width="300">
 </p>
 
 🌐 Modern Cars Website
